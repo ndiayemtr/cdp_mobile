@@ -4,6 +4,8 @@ import 'package:cdp_mobile/mission.dart';
 import 'package:cdp_mobile/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
+import 'drawer_menu.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -21,9 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Column(
-        children: [Expanded(child: MenuScren())],
-      ),
+      home: DrawerMenu(),
     );
   }
 }

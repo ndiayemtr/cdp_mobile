@@ -27,9 +27,6 @@ class _MenuScrenState extends State<MenuScren> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("CDP APP"),
-      ),
       body: Container(
         child: Column(
           children: [
@@ -53,8 +50,7 @@ class _MenuScrenState extends State<MenuScren> {
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.message), label: 'Message'),
+            BottomNavigationBarItem(icon: Icon(Icons.info), label: 'Actualite'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Quiz'),
           ]),
     );
