@@ -27,7 +27,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
               },
             ),
             ListTile(
-              title: Text('PLAITE'),
+              title: Text('PLAINTE'),
               onTap: () {
                 Navigator.pop(context);
               },

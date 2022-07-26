@@ -3,6 +3,7 @@ import 'package:cdp_mobile/menu_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 
 import 'model/model_menu.dart';
 import 'navigation_bar.dart';
@@ -43,6 +44,46 @@ class _MenuScrenState extends State<MenuScren> {
             )
           ],
         ),
+      ),
+      floatingActionButton: SpeedDial(
+        animatedIcon: AnimatedIcons.menu_close,
+        backgroundColor: Colors.orange,
+        overlayColor: Colors.grey,
+        overlayOpacity: 0.5,
+        spaceBetweenChildren: 12,
+        closeManually: true,
+        spacing: 15,
+        children: [
+          SpeedDialChild(
+            child: Icon(
+              Icons.share_rounded,
+            ),
+            backgroundColor: Colors.orange,
+            label: 'youTube',
+            onTap: () {},
+          ),
+          SpeedDialChild(
+            child: Icon(
+              Icons.mail,
+            ),
+            backgroundColor: Colors.orange,
+            label: 'tiwer',
+          ),
+          SpeedDialChild(
+            child: Icon(
+              Icons.copy,
+            ),
+            backgroundColor: Colors.orange,
+            label: 'facebook',
+          ),
+          SpeedDialChild(
+            child: Icon(
+              Icons.ac_unit_outlined,
+            ),
+            backgroundColor: Colors.orange,
+            label: 'linkedin',
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: id,
