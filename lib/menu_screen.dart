@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'model/model_menu.dart';
 import 'navigation_bar.dart';
+
+//final Uri _url = Uri.parse('https://flutter.dev');
 
 class MenuScren extends StatefulWidget {
   @override
@@ -23,6 +27,12 @@ class _MenuScrenState extends State<MenuScren> {
     setState(() {
       id = index;
     });
+  }
+
+  void _launchUrl(String _url) async {
+    if (!await launch(_url)) {
+      throw 'Could not launch $_url';
+    }
   }
 
   @override
@@ -55,33 +65,34 @@ class _MenuScrenState extends State<MenuScren> {
         spacing: 15,
         children: [
           SpeedDialChild(
-            child: Icon(
-              Icons.share_rounded,
-            ),
-            backgroundColor: Colors.orange,
-            label: 'youTube',
-            onTap: () {},
+            child: Icon(FontAwesomeIcons.youtube),
+            backgroundColor: Colors.red,
+            label: 'YouTube',
+            onTap: () => _launchUrl('https://www.youtube.com'),
           ),
           SpeedDialChild(
-            child: Icon(
-              Icons.mail,
-            ),
-            backgroundColor: Colors.orange,
-            label: 'tiwer',
+            child: Icon(FontAwesomeIcons.facebook),
+            backgroundColor: Colors.blue,
+            label: 'Facebook',
+            onTap: () => _launchUrl('https://www.facebook.com'),
           ),
           SpeedDialChild(
-            child: Icon(
-              Icons.copy,
-            ),
-            backgroundColor: Colors.orange,
-            label: 'facebook',
+            child: Icon(FontAwesomeIcons.twitter),
+            backgroundColor: Colors.blue,
+            label: 'Twitter',
+            onTap: () => _launchUrl('https://www.twitter.com'),
           ),
           SpeedDialChild(
-            child: Icon(
-              Icons.ac_unit_outlined,
-            ),
+            child: Icon(Icons.mail),
             backgroundColor: Colors.orange,
-            label: 'linkedin',
+            label: 'Email',
+            onTap: () => _launchUrl('mailto:ndiayemtr@gmail.com'),
+          ),
+          SpeedDialChild(
+            child: Icon(FontAwesomeIcons.phone),
+            backgroundColor: Colors.green,
+            label: 'Appeler la CDP',
+            onTap: () => _launchUrl('tel:+221-77-112-46-40'),
           ),
         ],
       ),
