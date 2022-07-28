@@ -1,74 +1,35 @@
-import 'dart:ui';
-
-import 'package:cdp_mobile/mission_instruction.dart';
+import 'package:cdp_mobile/mission_control.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
-final _images = [
-  'assets/cdp_cest_quoi.jpg',
-  'assets/mission_de_veille.jpg',
-  'assets/mission_de_veille.jpg',
-  'assets/mission_instruction.jpg',
-  'assets/mission_de_control.jpg',
-];
-
-class Mission extends StatefulWidget {
-  const Mission({Key? key}) : super(key: key);
+class MissionInstruction extends StatefulWidget {
+  const MissionInstruction({Key? key}) : super(key: key);
 
   @override
-  State<Mission> createState() => _Missiontate();
+  State<MissionInstruction> createState() => _MissionInstructiontate();
 }
 
-class _Missiontate extends State<Mission> {
-  List MISSION_VEILLE = [
+class _MissionInstructiontate extends State<MissionInstruction> {
+  List MISSION_INSTRUCTION = [
     {
       'text': 'A ce titre, la CDP :',
     },
     {
       'text':
-          '• Veille à ce que les traitements des données à caractère personnel soient mis en œuvre conformément aux dispositions légales ;',
+          '• reçoit les formalités préalables (les déclarations, les demandes d’autorisation) à la création de traitements des données à caractère personnel ;',
     },
     {
       'text':
-          '• informe les personnes concernées et les responsables de traitement de leurs droits et obligations ;',
+          '• reçoit les réclamations, les pétitions et les plaintes relatives à la mise en œuvre des traitements des données à caractère personnel et informe leurs auteurs des suites données à celles-ci ;',
+    },
+    {
+      'text': '• répond à toute demande d’avis ;',
     },
     {
       'text':
-          '• s’assure que les Technologies de l’Information et de la Communication (TIC) ne comportent pas de menace au regard',
-    },
-    {
-      'text':
-          '• homologue les chartes d’utilisation présentées par des responsables de traitement de l’information ou de données;',
-    },
-    {
-      'text':
-          '• tient un répertoire des traitements des données à caractère personnel à la disposition du public ;',
-    },
-    {
-      'text':
-          '• conseille les personnes et organismes qui ont recours aux traitements des données à caractère personnel ou qui procèdent à des essais ou expériences de nature à aboutir à de tels traitements ;',
-    },
-    {
-      'text':
-          '• présente au gouvernement toute suggestion susceptible de simplifier et d’améliorer le cadre législatif et réglementaire à l’égard du traitement des données ;',
-    },
-    {
-      'text':
-          '• publie les autorisations accordées et les avis émis dans le répertoire des traitements des données à caractère personnel ;',
-    },
-    {
-      'text':
-          '• établit chaque année un rapport d’activités remis au Président de la République et au Président de l’Assemblée nationale ;',
-    },
-    {
-      'text':
-          '• formule toutes recommandations utiles en vue de veiller à ce que les traitements des données à caractère personnel soient mis en œuvre conformément aux dispositions en vigueur ;',
-    },
-    {
-      'text':
-          '• coopère avec les autorités de protection des données à caractère personnel des pays tiers et participe aux négociations internationales en matière de protection des données à caractère personnel.',
+          '• autorise les transferts transfrontaliers de données à caractère personnel.',
     },
   ];
   @override
@@ -83,7 +44,7 @@ class _Missiontate extends State<Mission> {
           //padding: EdgeInsets.only(top: 100),
           children: [
             ListTile(
-              title: Text('MISSIONS'),
+              title: Text('Mission'),
               onTap: () {
                 Navigator.pop(context);
               },
@@ -114,7 +75,7 @@ class _Missiontate extends State<Mission> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: Text(
-                "UNE MISSION DE VEILLE, DE SENSIBILISATION, DE CONSEILS ET DE PROPOSITIONS",
+                "UNE MISSION D’INSTRUCTION DES DOSSIERS",
                 style: const TextStyle(
                   fontSize: 17,
                   fontWeight: FontWeight.bold,
@@ -125,7 +86,7 @@ class _Missiontate extends State<Mission> {
             Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
-                children: MISSION_VEILLE.map(
+                children: MISSION_INSTRUCTION.map(
                   (item) {
                     return Text(
                       item['text'],
@@ -166,7 +127,7 @@ class _Missiontate extends State<Mission> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const MissionInstruction()),
+                            builder: (context) => const MissionControl()),
                       );
                     },
                     style: ElevatedButton.styleFrom(

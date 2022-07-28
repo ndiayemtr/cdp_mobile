@@ -1,6 +1,7 @@
 import 'package:cdp_mobile/actualites.dart';
 import 'package:cdp_mobile/menu_screen.dart';
 import 'package:cdp_mobile/mission.dart';
+import 'package:cdp_mobile/mission_cdp.dart';
 import 'package:cdp_mobile/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -38,7 +39,7 @@ class RouteGenerator {
         );
       case '/mission':
         return MaterialPageRoute(
-          builder: (context) => Mission(),
+          builder: (context) => MissionCdp(),
         );
       case '/actualite':
         return MaterialPageRoute(
