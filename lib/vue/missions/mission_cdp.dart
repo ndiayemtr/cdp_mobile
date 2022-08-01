@@ -1,13 +1,13 @@
 import 'package:cdp_mobile/drawer_menu.dart';
 import 'package:cdp_mobile/menu_screen.dart';
-import 'package:cdp_mobile/mission.dart';
-import 'package:cdp_mobile/mission_instruction.dart';
+import 'package:cdp_mobile/vue/missions/mission.dart';
+import 'package:cdp_mobile/vue/missions/mission_instruction.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
-import 'main.dart';
+import '../../main.dart';
 
 class MissionCdp extends StatefulWidget {
   const MissionCdp({Key? key}) : super(key: key);
@@ -54,33 +54,13 @@ class _MissionCdptate extends State<MissionCdp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(),
-      drawer: Container(
-        color: Colors.white,
-        width: 250,
-        child: ListView(
-          //padding: EdgeInsets.only(top: 100),
-          children: [
-            ListTile(
-              title: Text('MISSIONS'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('PLAINTE'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('SIGNALEMENT'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+      endDrawer: const Drawer(
+        child: NavigationDrawer(),
+      ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
         ),
       ),
       body: SingleChildScrollView(
@@ -154,19 +134,6 @@ class _MissionCdptate extends State<MissionCdp> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-          currentIndex: id,
-          onTap: _navigateBotonBar,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Accueil',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.newspaper), label: 'Actualite'),
-            BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Quiz'),
-          ]),
     );
   }
 

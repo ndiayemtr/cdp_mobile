@@ -1,10 +1,12 @@
 import 'dart:ui';
 
-import 'package:cdp_mobile/mission_instruction.dart';
+import 'package:cdp_mobile/vue/missions/mission_instruction.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
+
+import '../../drawer_menu.dart';
 
 final _images = [
   'assets/cdp_cest_quoi.jpg',
@@ -74,33 +76,13 @@ class _Missiontate extends State<Mission> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(),
-      drawer: Container(
-        color: Colors.white,
-        width: 250,
-        child: ListView(
-          //padding: EdgeInsets.only(top: 100),
-          children: [
-            ListTile(
-              title: Text('MISSIONS'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('PLAINTE'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('SIGNALEMENT'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+      endDrawer: const Drawer(
+        child: NavigationDrawer(),
+      ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
         ),
       ),
       body: SingleChildScrollView(

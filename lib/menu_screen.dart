@@ -10,8 +10,6 @@ import 'package:url_launcher/url_launcher.dart';
 import 'model/model_menu.dart';
 import 'navigation_bar.dart';
 
-//final Uri _url = Uri.parse('https://flutter.dev');
-
 class MenuScren extends StatefulWidget {
   @override
   State<MenuScren> createState() => _MenuScrenState();
@@ -95,7 +93,7 @@ class _MenuScrenState extends State<MenuScren> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      /*  bottomNavigationBar: BottomNavigationBar(
           currentIndex: id,
           onTap: _navigateBotonBar,
           type: BottomNavigationBarType.fixed,
@@ -104,7 +102,7 @@ class _MenuScrenState extends State<MenuScren> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.newspaper), label: 'Actualite'),
             BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Quiz'),
-          ]),
+          ]), */
     );
   }
 

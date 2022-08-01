@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:photo_view/photo_view.dart';
 import 'package:photo_view/photo_view_gallery.dart';
 
+import '../../drawer_menu.dart';
+
 class MissionControl extends StatefulWidget {
   const MissionControl({Key? key}) : super(key: key);
 
@@ -34,33 +36,13 @@ class _MissionControltate extends State<MissionControl> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.lightBlueAccent,
-      appBar: AppBar(),
-      drawer: Container(
-        color: Colors.white,
-        width: 250,
-        child: ListView(
-          //padding: EdgeInsets.only(top: 100),
-          children: [
-            ListTile(
-              title: Text('Mission'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('PLAINTE'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('SIGNALEMENT'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
+      endDrawer: const Drawer(
+        child: NavigationDrawer(),
+      ),
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () => Navigator.of(context).pop(),
         ),
       ),
       body: SingleChildScrollView(

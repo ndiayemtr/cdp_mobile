@@ -9,7 +9,7 @@ const DATA_MENU = [
     id: '2',
     title: 'DEPOSER UNE PLAINTE',
     icon: Icons.note_alt,
-    url: 'plainte',
+    url: 'deposer_plainte',
   ),
   ModelMenu(
     id: '3',
@@ -18,9 +18,27 @@ const DATA_MENU = [
     url: 'signalement',
   ),
   ModelMenu(
+    id: '7',
+    title: 'ACTUALITES',
+    icon: Icons.info,
+    url: 'actualite',
+  ),
+  ModelMenu(
     id: '4',
-    title: 'DOCUMENTATIONS',
+    title: ' DOCUMENTATIONS',
     icon: Icons.menu_book_outlined,
     url: 'documentation',
+  ),
+  ModelMenu(
+    id: '5',
+    title: 'ASTUCES &  CONSEILS',
+    icon: Icons.tips_and_updates_rounded,
+    url: 'astucesetconseils',
+  ),
+  ModelMenu(
+    id: '6',
+    title: 'QUIZ',
+    icon: Icons.quiz,
+    url: 'quiz',
   ),
 ];

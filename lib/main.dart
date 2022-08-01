@@ -1,8 +1,13 @@
 import 'package:cdp_mobile/actualites.dart';
+import 'package:cdp_mobile/astuces_conseils.dart';
+import 'package:cdp_mobile/deposer_plainte.dart';
+import 'package:cdp_mobile/documentations.dart';
+import 'package:cdp_mobile/faire_un_signalement.dart';
 import 'package:cdp_mobile/menu_screen.dart';
-import 'package:cdp_mobile/mission.dart';
-import 'package:cdp_mobile/mission_cdp.dart';
+import 'package:cdp_mobile/vue/missions/mission.dart';
+import 'package:cdp_mobile/vue/missions/mission_cdp.dart';
 import 'package:cdp_mobile/navigation_bar.dart';
+import 'package:cdp_mobile/quiz.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_menu.dart';
@@ -24,7 +29,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DrawerMenu(),
+      home: const DrawerMenu(),
     );
   }
 }
@@ -39,11 +44,31 @@ class RouteGenerator {
         );
       case '/mission':
         return MaterialPageRoute(
-          builder: (context) => MissionCdp(),
+          builder: (context) => const MissionCdp(),
+        );
+      case '/documentation':
+        return MaterialPageRoute(
+          builder: (context) => const Documentations(),
+        );
+      case '/signalement':
+        return MaterialPageRoute(
+          builder: (context) => const FaireUnSignalement(),
+        );
+      case '/astucesetconseils':
+        return MaterialPageRoute(
+          builder: (context) => const AstucesConseils(),
+        );
+      case '/deposer_plainte':
+        return MaterialPageRoute(
+          builder: (context) => const DeposerPlainte(),
+        );
+      case '/quiz':
+        return MaterialPageRoute(
+          builder: (context) => const Quiz(),
         );
       case '/actualite':
         return MaterialPageRoute(
-          builder: (context) => Actuallite(),
+          builder: (context) => const Actuallite(),
         );
       default:
         return _errorRoute();

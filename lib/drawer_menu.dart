@@ -1,4 +1,6 @@
+import 'package:cdp_mobile/data_menu.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'menu_screen.dart';
 
@@ -14,33 +16,7 @@ class _DrawerMenuState extends State<DrawerMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      drawer: Container(
-        color: Colors.white,
-        width: 250,
-        child: ListView(
-          //padding: EdgeInsets.only(top: 100),
-          children: [
-            ListTile(
-              title: Text('MISSIONS'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('PLAINTE'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              title: Text('SIGNALEMENT'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const NavigationDrawer(),
       body: Column(
         children: [
           Expanded(
@@ -50,4 +26,73 @@ class _DrawerMenuState extends State<DrawerMenu> {
       ),
     );
   }
+}
+
+class NavigationDrawer extends StatelessWidget {
+  const NavigationDrawer({Key? key}) : super(key: key);
+  @override
+  Widget build(BuildContext context) => Drawer(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              buildHeader(context),
+              buildItems(context),
+            ],
+          ),
+        ),
+      );
+
+  Widget buildHeader(BuildContext context) => Container(
+        color: Colors.blue.shade700,
+        padding: EdgeInsets.only(
+          top: 24 + MediaQuery.of(context).padding.top,
+          bottom: 24,
+        ),
+        child: Column(
+          children: const [
+            CircleAvatar(
+              radius: 52,
+              backgroundImage: AssetImage(
+                'assets/cdp.jpeg',
+              ),
+            ),
+            SizedBox(
+              height: 12,
+            ),
+            Text(
+              'Amina',
+              style: TextStyle(fontSize: 28, color: Colors.white),
+            ),
+            Text(
+              'Amina@cdp.sn',
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            )
+          ],
+        ),
+      );
+  Widget buildItems(BuildContext contex) => Container(
+        padding: const EdgeInsets.all(24),
+        child: Wrap(
+          runSpacing: 16,
+          children: DATA_MENU.map((item) {
+            return ListTile(
+              onTap: () {
+                Navigator.pop(contex);
+                Navigator.pushNamed(
+                  contex,
+                  '/${item.url}',
+                );
+              },
+              leading: Icon(
+                item.icon,
+                size: 25,
+              ),
+              title: Text(
+                item.title,
+              ),
+            );
+          }).toList(),
+        ),
+      );
 }
