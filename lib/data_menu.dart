@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 
 // ignore: constant_identifier_names
 const DATA_MENU = [
+  /* ModelMenu(
+    id: '6',
+    title: 'ACCUEIL',
+    icon: Icons.home_outlined,
+    url: 'acueil',
+  ), */
   ModelMenu(
       id: '1', title: 'MISSIONS', icon: Icons.trending_up, url: 'mission'),
   ModelMenu(
