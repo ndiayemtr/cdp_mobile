@@ -19,7 +19,7 @@ class QuestionController extends GetxController
   late PageController _pageController;
   PageController get pageController => this._pageController;
 
-  List<Question> _questions = sample_data
+  final List<Question> _questions = sample_data
       .map(
         (question) => Question(
             id: question['id'],
@@ -87,7 +87,7 @@ class QuestionController extends GetxController
     update();
 
     // Once user select an ans after 3s it will go to the next qn
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 2), () {
       nextQuestion();
     });
   }

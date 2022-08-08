@@ -1,3 +1,4 @@
+import 'package:cdp_mobile/vue/authentification/login_register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
@@ -12,8 +13,6 @@ class Documentations extends StatefulWidget {
 class _DocumentationsState extends State<Documentations> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-       child: Text("Documentations"),
-    );
+    return const LoginRegister();
   }
 }

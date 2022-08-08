@@ -1,4 +1,6 @@
+import 'package:cdp_mobile/formulaires/form_deposer_plainte.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -12,8 +14,9 @@ class DeposerPlainte extends StatefulWidget {
 class _DeposerPlainteState extends State<DeposerPlainte> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("deposer_plainte"),
+    return Scaffold(
+      //appBar: AppBar(),
+      body: DeposerPlaintForm(),
     );
   }
 }

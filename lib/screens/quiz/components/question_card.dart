@@ -32,11 +32,11 @@ class QuestionCard extends StatelessWidget {
               question.question,
               style: Theme.of(context)
                   .textTheme
-                  .headline6
+                  .subtitle1
                   ?.copyWith(color: kBlackColor),
             ),
           ),
-          SizedBox(height: kDefaultPadding / 2),
+          const SizedBox(height: kDefaultPadding / 2),
           ...List.generate(
             question.options.length,
             (index) => Option(
