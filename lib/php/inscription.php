@@ -33,8 +33,7 @@ try {
 
 echo json_encode([
     "data" => [
-        $sucess,
         $msg,
-        $mailExist
+        $sucess,
     ]
 ]);

@@ -7,14 +7,17 @@ class CustomTestField {
   String err;
   String _value = '';
 
-  CustomTestField(
-      {this.title = "",
-      this.placeholder = '',
-      this.ispass = false,
-      this.err = "veillez remplir ce champ"});
+  CustomTestField({
+    this.title = "",
+    this.placeholder = '',
+    this.ispass = false,
+    this.err = "veillez remplir ce champ",
+  });
+  TextEditingController controller = new TextEditingController();
 
   TextFormField textFormField() {
     return TextFormField(
+      controller: controller,
       onChanged: (e) {
         _value = e;
       },

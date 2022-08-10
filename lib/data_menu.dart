@@ -32,7 +32,7 @@ const DATA_MENU = [
   ModelMenu(
     id: '4',
     title: ' DOCUMENTATIONS',
-    icon: Icons.menu_book_outlined,
+    icon: Icons.person,
     url: 'documentation',
   ),
   ModelMenu(
