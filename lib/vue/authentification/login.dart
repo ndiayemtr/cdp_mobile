@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:cdp_mobile/drawer_menu.dart';
+import 'package:cdp_mobile/models/user_modole.dart';
 import 'package:cdp_mobile/vue/authentification/register.dart';
 import 'package:cdp_mobile/widget/custom_testField.dart';
 import 'package:cdp_mobile/widget/loading.dart';
@@ -44,8 +45,14 @@ class _LoginState extends State<Login> {
       if (success == 1) {
         setState(() {
           err = data['data'][0];
+          UserModel.saveUser(UserModel.fromJson(data['data'][2]));
           _loading = false;
         });
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(
+            builder: (context) => const DrawerMenu(),
+          ),
+        );
       } else {
         setState(() {
           err = data['data'][0];

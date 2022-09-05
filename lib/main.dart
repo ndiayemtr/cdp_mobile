@@ -4,22 +4,53 @@ import 'package:cdp_mobile/deposer_plainte.dart';
 import 'package:cdp_mobile/documentations.dart';
 import 'package:cdp_mobile/faire_un_signalement.dart';
 import 'package:cdp_mobile/menu_screen.dart';
+import 'package:cdp_mobile/vue/authentification/login.dart';
 import 'package:cdp_mobile/vue/missions/mission.dart';
 import 'package:cdp_mobile/vue/missions/mission_cdp.dart';
 import 'package:cdp_mobile/navigation_bar.dart';
 import 'package:cdp_mobile/quiz.dart';
+import 'package:cdp_mobile/whatsapp.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_menu.dart';
+import 'models/user_modole.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const Home());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   // This widget is the root of your application.
+  bool login = false;
+  isconnected() async {
+    UserModel.getUser();
+    if (UserModel.sessionUser.id == '') {
+      setState(() {
+        login = false;
+      });
+    } else {
+      setState(() {
+        login = true;
+      });
+    }
+    print('id: ${UserModel.sessionUser.id}');
+    print(login);
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    //isconnected();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -30,6 +61,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const DrawerMenu(),
+      //home: login ? const DrawerMenu() : const Login(),
     );
   }
 }
@@ -46,9 +78,9 @@ class RouteGenerator {
         return MaterialPageRoute(
           builder: (context) => const MissionCdp(),
         );
-      case '/documentation':
+      case '/whatsapp':
         return MaterialPageRoute(
-          builder: (context) => const Documentations(),
+          builder: (context) => const Whatsapp(),
         );
       case '/signalement':
         return MaterialPageRoute(

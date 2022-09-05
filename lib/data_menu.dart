@@ -1,14 +1,8 @@
-import './model/model_menu.dart';
+import './models/model_menu.dart';
 import 'package:flutter/material.dart';
 
 // ignore: constant_identifier_names
 const DATA_MENU = [
-  /* ModelMenu(
-    id: '6',
-    title: 'ACCUEIL',
-    icon: Icons.home_outlined,
-    url: 'acueil',
-  ), */
   ModelMenu(
       id: '1', title: 'MISSIONS', icon: Icons.trending_up, url: 'mission'),
   ModelMenu(
@@ -30,12 +24,6 @@ const DATA_MENU = [
     url: 'actualite',
   ),
   ModelMenu(
-    id: '4',
-    title: ' DOCUMENTATIONS',
-    icon: Icons.person,
-    url: 'documentation',
-  ),
-  ModelMenu(
     id: '5',
     title: 'ASTUCES &  CONSEILS',
     icon: Icons.tips_and_updates_rounded,
@@ -46,5 +34,11 @@ const DATA_MENU = [
     title: 'QUIZ',
     icon: Icons.quiz,
     url: 'quiz',
+  ),
+  ModelMenu(
+    id: '7',
+    title: 'whatsapp',
+    icon: Icons.whatsapp,
+    url: 'whatsapp',
   ),
 ];

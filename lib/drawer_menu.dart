@@ -1,4 +1,9 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:cdp_mobile/data_menu.dart';
+import 'package:cdp_mobile/main.dart';
+import 'package:cdp_mobile/models/user_modole.dart';
+import 'package:cdp_mobile/vue/authentification/login.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -15,7 +20,22 @@ class _DrawerMenuState extends State<DrawerMenu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+          /*  actions: [
+          IconButton(
+            onPressed: () {
+              UserModel.getUser();
+              UserModel.logOut();
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(
+                  builder: (context) => const Login(),
+                ),
+              );
+            },
+            icon: const Icon(FontAwesomeIcons.signOutAlt),
+          )
+        ], */
+          ),
       drawer: const NavigationDrawer(),
       body: Column(
         children: [

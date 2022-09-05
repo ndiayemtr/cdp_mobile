@@ -1,8 +1,8 @@
 <?php
 $host = "localhost";
-$dbname = "id19382762_dbn_cdpmobile";
-$dbuser = "id19382762_dbu_cdpmobile";
-$dbpassword = "4F7ZtdEx*WLz(u(4J437vgrV";
+$dbname = "yhfwsmyc_dbn_cdpmobile";
+$dbuser = "yhfwsmyc_dbu_cdpmobil";
+$dbpassword = "@!BFqUDVmH8QzXp";
 
 try {
     $db = new PDO("mysql:host=$host; dbname=$dbname", $dbuser, $dbpassword);

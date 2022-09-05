@@ -6,8 +6,9 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'dart:io' show Platform;
 
-import 'model/model_menu.dart';
+import 'models/model_menu.dart';
 import 'navigation_bar.dart';
 
 class MenuScren extends StatefulWidget {
@@ -45,7 +46,7 @@ class _MenuScrenState extends State<MenuScren> {
               slongantCdp,
               textAlign: TextAlign.center,
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 30),
             Expanded(
               child: gridViewSection,
             )
@@ -62,54 +63,84 @@ class _MenuScrenState extends State<MenuScren> {
         spacing: 15,
         children: [
           SpeedDialChild(
-            child: Icon(FontAwesomeIcons.youtube),
-            backgroundColor: Colors.red,
+            child: const Icon(FontAwesomeIcons.youtube),
+            //backgroundColor: Colors.red,
             label: 'YouTube',
-            onTap: () => _launchUrl('https://www.youtube.com'),
+            onTap: () => _launchUrl(
+                'https://www.youtube.com/channel/UC9nGZUKH2eWYFKurzIcbX6w'),
           ),
           SpeedDialChild(
-            child: Icon(FontAwesomeIcons.facebook),
+            child: const Icon(FontAwesomeIcons.facebook),
             backgroundColor: Colors.blue,
             label: 'Facebook',
-            onTap: () => _launchUrl('https://www.facebook.com'),
+            onTap: () => _launchUrl('https://www.facebook.com/cdpsenegal/'),
           ),
           SpeedDialChild(
-            child: Icon(FontAwesomeIcons.twitter),
+            child: const Icon(FontAwesomeIcons.twitter),
             backgroundColor: Colors.blue,
             label: 'Twitter',
-            onTap: () => _launchUrl('https://www.twitter.com'),
+            onTap: () => _launchUrl('https://twitter.com/cdpsenegal'),
           ),
           SpeedDialChild(
-            child: Icon(Icons.mail),
+            child: const Icon(FontAwesomeIcons.linkedin),
+            //backgroundColor: Colors.blue,
+            label: 'Linkedin',
+            onTap: () =>
+                _launchUrl('https://www.linkedin.com/company/cdpsenegal/'),
+          ),
+          SpeedDialChild(
+            child: const Icon(Icons.mail),
             backgroundColor: Colors.orange,
             label: 'Email',
-            onTap: () => _launchUrl('mailto:ndiayemtr@gmail.com'),
+            onTap: () => _launchUrl('mailto:contact.cdp@cdp.sn'),
           ),
           SpeedDialChild(
-            child: Icon(FontAwesomeIcons.phone),
+            child: const Icon(FontAwesomeIcons.phone),
             backgroundColor: Colors.green,
             label: 'Appeler la CDP',
-            onTap: () => _launchUrl('tel:+221-77-112-46-40'),
+            onTap: () => _launchUrl('tel:+221-33-859-70-30'),
+          ),
+          SpeedDialChild(
+            child: const Icon(FontAwesomeIcons.whatsapp),
+            backgroundColor: Colors.green,
+            label: 'Contacez nous par whatsapp',
+            onTap: () {
+              openwhatsapp();
+            },
           ),
         ],
       ),
-      /*  bottomNavigationBar: BottomNavigationBar(
-          currentIndex: id,
-          onTap: _navigateBotonBar,
-          type: BottomNavigationBarType.fixed,
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Accueil'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.newspaper), label: 'Actualite'),
-            BottomNavigationBarItem(icon: Icon(Icons.book), label: 'Quiz'),
-          ]), */
     );
+  }
+
+  openwhatsapp() async {
+    var whatsapp = "+221771124640";
+    var whatsappURl_android =
+        "whatsapp://send?phone=" + whatsapp + "&text=hello";
+    var whatappURL_ios = "https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
+    if (Platform.isMacOS) {
+      // for iOS phone only
+      if (await canLaunch(whatappURL_ios)) {
+        await launch(whatappURL_ios, forceSafariVC: false);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: new Text("WhatsApp non installé")));
+      }
+    } else {
+      // android , web
+      if (await canLaunch(whatsappURl_android)) {
+        await launch(whatsappURl_android);
+      } else {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: new Text("WhatsApp non installé")));
+      }
+    }
   }
 
   Widget gridViewSection = GridView.builder(
     itemCount: DATA_MENU.length,
     gridDelegate:
-        const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
     itemBuilder: (BuildContext ctx, index) {
       return GestureDetector(
         onTap: () {
@@ -122,21 +153,31 @@ class _MenuScrenState extends State<MenuScren> {
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.all(5),
+                height: 130,
+                width: 140,
                 decoration: BoxDecoration(
-                  color: Colors.orange,
-                  borderRadius: BorderRadius.circular(5),
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.indigoAccent,
+                      Colors.indigo,
+                    ],
+                  ),
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                child: Icon(
-                  DATA_MENU[index].icon,
-                  color: Colors.white,
-                  size: 45,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(DATA_MENU[index].icon, color: Colors.white, size: 50),
+                    //SizedBox(height: 5),
+                    Text(
+                      DATA_MENU[index].title,
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                      textAlign: TextAlign.center,
+                    ),
+                  ],
                 ),
-              ),
-              const SizedBox(height: 5),
-              Text(
-                DATA_MENU[index].title,
-                textAlign: TextAlign.center,
               ),
             ],
           ),

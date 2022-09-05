@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
-class DeposerPlaintForm extends StatefulWidget {
-  const DeposerPlaintForm({Key? key}) : super(key: key);
+class SignalementForm extends StatefulWidget {
+  const SignalementForm({Key? key}) : super(key: key);
 
   @override
-  State<DeposerPlaintForm> createState() => _DeposerPlaintFormState();
+  State<SignalementForm> createState() => _SignalementFormState();
 }
 
-class _DeposerPlaintFormState extends State<DeposerPlaintForm> {
+class _SignalementFormState extends State<SignalementForm> {
   final formkey =
       GlobalKey<FormState>(); // Permet de valider les champs de saisi
   final prenomController = TextEditingController();
@@ -37,7 +37,7 @@ class _DeposerPlaintFormState extends State<DeposerPlaintForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Formulaire pour deposer une plainte'),
+        title: const Text('Faire un signalement'),
       ),
       body: Form(
         key: formkey,
@@ -163,7 +163,7 @@ class _DeposerPlaintFormState extends State<DeposerPlaintForm> {
                     print(messageController);
                   }
                 },
-                child: const Text('Deposer la plainte'),
+                child: const Text('Deposer le signalement'),
               ),
             )
           ],

@@ -4,6 +4,7 @@ class CustomTestField {
   final String title;
   final String placeholder;
   final bool ispass;
+  //final int line;
   String err;
   String _value = '';
 
@@ -12,12 +13,14 @@ class CustomTestField {
     this.placeholder = '',
     this.ispass = false,
     this.err = "veillez remplir ce champ",
+    //this.line = 10,
   });
   TextEditingController controller = new TextEditingController();
 
   TextFormField textFormField() {
     return TextFormField(
       controller: controller,
+     // maxLength: this.line,
       onChanged: (e) {
         _value = e;
       },

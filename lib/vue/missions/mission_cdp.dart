@@ -43,7 +43,7 @@ class _MissionCdptate extends State<MissionCdp> {
       case 0:
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => const MyApp()),
+          MaterialPageRoute(builder: (context) => const Home()),
         );
         break;
     }

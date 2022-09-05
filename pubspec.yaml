@@ -45,6 +45,8 @@ dependencies:
 
   flutter_spinkit: ^5.1.0
 
+  shared_preferences: ^2.0.15
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -81,6 +83,9 @@ flutter:
     - assets/mission_de_veille.jpg
     - assets/mission_instruction.jpg
     - assets/mission_de_control.jpg
+    - assets/astuce_POUR_UN_USAGE_SUR_RESPONSABLE_INTERNET.jpg
+    - assets/astuce_comment_proteger_les_donnes_personnelles_des_clients_dans_le_cadre_du_ecommerce.jpg
+    - assets/astuce_comment_reagir_face_au_Cyber_harcelement.jpg
     - icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see

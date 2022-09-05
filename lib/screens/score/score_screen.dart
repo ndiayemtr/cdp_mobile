@@ -67,7 +67,7 @@ class ScoreScreen extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const MyApp()),
+                                  builder: (context) => const Home()),
                             );
                           },
                           style: ElevatedButton.styleFrom(

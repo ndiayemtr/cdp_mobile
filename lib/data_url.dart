@@ -23,6 +23,11 @@ List data = [
     'url': 'https://www.twitter.com'
   },
   {
+    'name': "WhatsApp ",
+    'icon': FontAwesomeIcons.whatsapp,
+    'url': 'mailto:ndiayemtr@gmail.com'
+  },
+  {
     'name': "Email",
     'icon': FontAwesomeIcons.at,
     'url': 'mailto:ndiayemtr@gmail.com'
