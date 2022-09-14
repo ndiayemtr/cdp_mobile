@@ -24,7 +24,7 @@ class _ActualliteState extends State<Actuallite> {
             icon: const Icon(Icons.arrow_back, color: Colors.white),
             onPressed: () => Navigator.of(context).pop(),
           ),
-          title: const Text('Astuces & Conseils'),
+          title: const Text('Actualités de la CDP'),
         ),
         body: ListView.builder(
           itemCount: DATA_ACTUALITE.length,

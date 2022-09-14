@@ -35,10 +35,4 @@ const DATA_MENU = [
     icon: Icons.quiz,
     url: 'quiz',
   ),
-  ModelMenu(
-    id: '7',
-    title: 'whatsapp',
-    icon: Icons.whatsapp,
-    url: 'whatsapp',
-  ),
 ];

@@ -35,6 +35,8 @@ dependencies:
   url_launcher: ^6.1.4
   font_awesome_flutter: ^10.1.0
   google_fonts: ^3.0.1
+
+  whatsapp_unilink: ^2.0.2
   
   websafe_svg: ^2.1.2+1
   get: ^4.6.5
@@ -86,6 +88,9 @@ flutter:
     - assets/astuce_POUR_UN_USAGE_SUR_RESPONSABLE_INTERNET.jpg
     - assets/astuce_comment_proteger_les_donnes_personnelles_des_clients_dans_le_cadre_du_ecommerce.jpg
     - assets/astuce_comment_reagir_face_au_Cyber_harcelement.jpg
+    - assets/actualite_1.jpg
+    - assets/actualite_2.jpg
+    - assets/actualite_3.jpg
     - icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -6,6 +6,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:whatsapp_unilink/whatsapp_unilink.dart';
 import 'dart:io' show Platform;
 
 import 'models/model_menu.dart';
@@ -114,7 +115,7 @@ class _MenuScrenState extends State<MenuScren> {
   }
 
   openwhatsapp() async {
-    var whatsapp = "+221771124640";
+    /* var whatsapp = "+221771124640";
     var whatsappURl_android =
         "whatsapp://send?phone=" + whatsapp + "&text=hello";
     var whatappURL_ios = "https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
@@ -134,7 +135,13 @@ class _MenuScrenState extends State<MenuScren> {
         ScaffoldMessenger.of(context)
             .showSnackBar(SnackBar(content: new Text("WhatsApp non installé")));
       }
-    }
+    } */
+    final link = WhatsAppUnilink(
+      phoneNumber: '+221771124640',
+      text: "Bonjour la CDP",
+    );
+
+    await launch('$link');
   }
 
   Widget gridViewSection = GridView.builder(
