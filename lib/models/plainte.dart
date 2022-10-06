@@ -1,22 +1,39 @@
 class Plainte {
-  int id;
   String prenom;
   String nom;
-  String message_plainiant;
+  String telephone;
+  String motif_plainte;
+  String objet;
+  String message_plainte;
 
   Plainte({
-    required this.id,
     required this.prenom,
     required this.nom,
-    required this.message_plainiant,
+    required this.telephone,
+    required this.motif_plainte,
+    required this.objet,
+    required this.message_plainte,
   });
 
   factory Plainte.fromJson(Map<String, dynamic> json) {
     return Plainte(
-      id: json['id'] as int,
       prenom: json['prenom'] as String,
-      nom: json['prenom'] as String,
-      message_plainiant: json['message_plainiant'] as String,
+      nom: json['nom'] as String,
+      telephone: json['telephone'] as String,
+      motif_plainte: json['motif_plainte'] as String,
+      objet: json['objet'] as String,
+      message_plainte: json['message_plainte'] as String,
     );
+  }
+
+  Map toMap() {
+    return {
+      "prenom": prenom,
+      "nom": nom,
+      "telephone": telephone,
+      "motif_plainte": motif_plainte,
+      "objet": objet,
+      "message_plainte": message_plainte,
+    };
   }
 }

@@ -1,8 +1,16 @@
+import 'package:background_sms/background_sms.dart';
 import 'package:cdp_mobile/api/api.dart';
 import 'package:cdp_mobile/models/signalement.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:mailer/mailer.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
 
 class SignalementForm extends StatefulWidget {
   const SignalementForm({Key? key}) : super(key: key);
@@ -24,7 +32,10 @@ class _SignalementFormState extends State<SignalementForm> {
   final telController = TextEditingController();
   final objetController = TextEditingController();
   final messageController = TextEditingController();
+
   bool signal = false;
+
+  List<String> smsTraitementSignal = ["221771124640"];
 
   @override
   void dispose() {
@@ -34,6 +45,25 @@ class _SignalementFormState extends State<SignalementForm> {
     objetController.dispose();
     messageController.dispose();
     super.dispose();
+  }
+
+  static const platform = const MethodChannel('sendSms');
+
+  Future sendEmail() async {
+    final email = 'ndiayemtr@gmail.com';
+    final smtpServer = gmail('ndiayemtr@gmail.com', 'yxbjfszadugvsjhz');
+
+    final message = Message()
+      ..from = Address(email, 'Matar')
+      ..recipients = ['ndiayemtr@gmail.com', 'matar.ndiaye@cdp.sn']
+      ..subject = 'Bonjour Matar'
+      ..text = 'Nouveau siganlement recu';
+
+    try {
+      await send(message, smtpServer);
+    } on MailerException catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -92,6 +122,7 @@ class _SignalementFormState extends State<SignalementForm> {
               padding: const EdgeInsets.only(
                   top: 16.0, left: 16.0, right: 16.0, bottom: 8.0),
               child: TextFormField(
+                keyboardType: TextInputType.number,
                 controller: telController,
                 decoration: const InputDecoration(
                   labelText: 'Numero Téléphone',
@@ -176,12 +207,12 @@ class _SignalementFormState extends State<SignalementForm> {
 
                           var result =
                               await APi.addSignalement(signalement.toMap());
-                          print(result);
 
                           if (result != null && result[0]) {
                             setState(() {
                               signal = false;
                             });
+                            sendEmail();
                             ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                                 content:
                                     new Text("Votre signalement est envoyé")));
